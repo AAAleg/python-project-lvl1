@@ -7,24 +7,17 @@ def run():
     print("Welcome to the Brain Games!")
     name = cli.welcome_user()
 
-    print("What number is missing in the progression?")
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
 
     rounds = 3
     correct_answers = 0
 
     while correct_answers < rounds:
-        initial_number = randint(1, 100)
-        delta = randint(1, 25)
-        length = 10
-        maximum_number = (delta * length) + initial_number
-        prog = range(initial_number, maximum_number, delta)
+        number = randint(1, 100)
 
-        correct_answer = choice(prog)
-        progression = ' '.join([
-            '..' if num == correct_answer else str(num) for num in prog
-        ])
+        expression = f"{number}"
 
-        expression = f"{progression}"
+        correct_answer = "yes" if is_prime(number) else "no"
 
         print(f'Question: {expression}')
 
@@ -41,3 +34,14 @@ def run():
             return
 
     print(f'Congratulations, {name}')
+
+
+def is_prime(number):
+    if number < 2 or not number % 2:
+        return False
+    counter = 3
+    while counter <= number // 2:
+        if not number % counter:
+            return False
+        counter += 2
+    return True
