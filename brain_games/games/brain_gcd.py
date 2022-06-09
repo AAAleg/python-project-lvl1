@@ -7,7 +7,7 @@ def run():
     print("Welcome to the Brain Games!")
     name = cli.welcome_user()
 
-    print("What is the result of the expression?")
+    print("Find the greatest common divisor of given numbers.")
 
     rounds = 3
     correct_answers = 0
