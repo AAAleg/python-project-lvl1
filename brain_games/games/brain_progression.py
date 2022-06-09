@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 
 from brain_games import cli
 
@@ -7,18 +7,24 @@ def run():
     print("Welcome to the Brain Games!")
     name = cli.welcome_user()
 
-    print("Find the greatest common divisor of given numbers.")
+    print("What number is missing in the progression?")
 
     rounds = 3
     correct_answers = 0
 
     while correct_answers < rounds:
-        number1 = randint(1, 100)
-        number2 = randint(1, 100)
+        initial_number = randint(1, 100)
+        delta = randint(1, 25)
+        length = 10
+        maximum_number = (delta * length) + initial_number
+        prog = range(initial_number, maximum_number, delta)
 
-        correct_answer = gcd(number1, number2)
+        correct_answer = choice(prog)
+        progression = ' '.join([
+            '..' if num == correct_answer else str(num) for num in prog
+        ])
 
-        expression = f"{number1} {number2}"
+        expression = f"{progression}"
 
         print(f'Question: {expression}')
 
