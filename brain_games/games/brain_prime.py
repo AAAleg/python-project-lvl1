@@ -1,39 +1,13 @@
-from random import randint, choice
+from brain_games.tools import generate_number
 
-from brain_games import cli
+DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def run():
-    print("Welcome to the Brain Games!")
-    name = cli.welcome_user()
-
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
-
-    rounds = 3
-    correct_answers = 0
-
-    while correct_answers < rounds:
-        number = randint(1, 100)
-
-        expression = f"{number}"
-
-        correct_answer = "yes" if is_prime(number) else "no"
-
-        print(f'Question: {expression}')
-
-        user_answer = cli.get_user_answer()
-
-        if user_answer == str(correct_answer):
-            print("Correct!")
-            correct_answers += 1
-        else:
-            message = "'{wrong}' is wrong answer ;(. " \
-                      "Correct answer was '{correct}'."
-            print(message.format(wrong=user_answer, correct=correct_answer))
-            print(f"Let's try again, {name}!")
-            return
-
-    print(f'Congratulations, {name}')
+def play():
+    number = generate_number()
+    question = f'Question: {number}'
+    correct_answer = "yes" if is_prime(number) else "no"
+    return question, correct_answer
 
 
 def is_prime(number):
