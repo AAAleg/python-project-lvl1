@@ -1,8 +1,9 @@
 [tool.poetry]
-name = "hexlet-code"
+name = "aaaleg-brain-games"
 version = "0.1.0"
 description = ""
 authors = ["Oleg Marintsov <awwert@yandex.ru>"]
+repository = "https://github.com/AAAleg/python-project-lvl1"
 packages = [
     { include = "brain_games" },
 ]
