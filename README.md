@@ -18,7 +18,7 @@ The package contains five simple mathematics quiz games:
 Use the package manager [pip](https://pypi.org/project/pip/) to install Brain Games.
 
 ```bash
-pip install --user --extra-index-url https://test.pypi.org/simple/ hexlet-brain-games
+pip install --user --extra-index-url https://test.pypi.org/simple/ hexlet-code
 ```
 
 ## Usage
